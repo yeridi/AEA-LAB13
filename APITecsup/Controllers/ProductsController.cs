@@ -13,6 +13,8 @@ using APITecsup.Models;
 
 namespace APITecsup.Controllers
 {
+     //[Authorize]
+     //[RoutePrefix("api/Products")]
     public class ProductsController : ApiController
     {
         private ExampleContext db = new ExampleContext();
@@ -27,6 +29,9 @@ namespace APITecsup.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
         {
+            //var customerFake = "customer-fake";
+            //return Ok(customerFake);
+
             Product product = db.Products.Find(id);
             if (product == null)
             {
